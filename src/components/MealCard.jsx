@@ -2,7 +2,6 @@
 // import React from 'react';
 
 const MealCard = ({ meal }) => {
-  console.log(meal);
     return (
       <div>
         <h3>{meal.title}</h3>

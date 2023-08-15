@@ -7,9 +7,9 @@ const Breakfast = () => {
   const [breakfastMeals, setBreakfastMeals] = useState([]);
 
   useEffect(() => {
-    fetch('db.json')
+    fetch('https://www.themealdb.com/api/json/v1/1/filter.php?i')
       .then(response => response.json())
-      .then(data =>setBreakfastMeals(data))
+      .then(data =>console.log(data))
       .catch(error => console.error(error));
     // getBreakfastMeals().then((meals) => setBreakfastMeals(meals));
   }, []);
@@ -17,8 +17,8 @@ const Breakfast = () => {
   return (
     <div>
       <h2>Breakfast Meals</h2>
-      {breakfastMeals.map((breakfastMeals) =>(
-        <MealCard mname={breakfastMeals.meals.name} pic={breakfastMeals.meals.image} />
+      {breakfastMeals.map((breakfastMeal) =>(
+        <MealCard name={breakfastMeal.meals.name} pic={breakfastMeal.meals.image} />
       ))}
       {/* <MealList meals={breakfastMeals} /> */}
     </div>
